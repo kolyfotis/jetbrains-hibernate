@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.entity.Department;
+import com.example.persistence.UserPersistence;
 import com.example.service.DepartmentService;
 
 import javax.persistence.*;
@@ -13,10 +14,13 @@ public class Main {
         EntityTransaction transaction = entityManager.getTransaction();
 //        DepartmentPersistence departmentPersistence = new DepartmentPersistence();
 //        DepartmentService departmentService = new DepartmentService();
+//        UserPersistence userPersistence = new UserPersistence();
 
         try {
             transaction.begin();
 //          ------------------ TESTS BELOW --------------------
+
+//            userPersistence.getUserByUserName("user1");
 
 //            Department department = new Department();
 //            department.setName("Data Analytics Department");
