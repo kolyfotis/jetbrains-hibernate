@@ -1,0 +1,16 @@
+package com.example.service;
+
+import com.example.entity.Employee;
+import com.example.persistence.EmployeePersistence;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeService {
+
+    EmployeePersistence employeePersistence = new EmployeePersistence();
+
+    public List<Employee> getEmployees() {
+        return new ArrayList<>(employeePersistence.getEmployees());
+    }
+}
