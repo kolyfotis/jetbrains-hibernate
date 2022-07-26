@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePersistence {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    EntityManager entityManager = entityManagerFactory.createEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
 
     public List<Employee> getEmployees() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         List<Employee> employees = new ArrayList<Employee>();
 
         try {

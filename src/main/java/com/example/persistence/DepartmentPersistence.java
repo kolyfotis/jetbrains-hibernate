@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentPersistence {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    EntityManager entityManager = entityManagerFactory.createEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
 
     public List<Department> getDepartments() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         List<Department> departments = new ArrayList<>();
 
         try {
@@ -35,6 +35,9 @@ public class DepartmentPersistence {
     }
 
     public Department getDepartmentById(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         Department department = new Department();
 
         try {
@@ -59,6 +62,9 @@ public class DepartmentPersistence {
     }
 
     public Department addDepartment(Department department) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 
@@ -88,6 +94,9 @@ public class DepartmentPersistence {
     }
 
     public Department updateDepartment(Department department) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 
@@ -112,6 +121,9 @@ public class DepartmentPersistence {
     }
 
     public void removeDepartment(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 
