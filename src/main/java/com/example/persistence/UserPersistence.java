@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserPersistence {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    EntityManager entityManager = entityManagerFactory.createEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
 
     public List<User> getUsers() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         List<User> users = new ArrayList<>();
 
         try {
@@ -35,6 +35,9 @@ public class UserPersistence {
     }
 
     public User getUserById(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         User user = new User();
 
         try {
@@ -59,7 +62,10 @@ public class UserPersistence {
     }
 
     public User getUserByUserName(String userName) {
-        User user = new User();
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        User user = null;
 
         try {
             transaction.begin();
@@ -84,13 +90,17 @@ public class UserPersistence {
     }
 
     public User addUser(User user) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 
-            entityManager.createNativeQuery("insert into mydb.user (user.username, user.password)" +
-                            "values (:userName, :password)", User.class)
+            entityManager.createNativeQuery("insert into mydb.user (user.username, user.password, user.role)" +
+                            "values (:userName, :password, :role)", User.class)
                     .setParameter("userName", user.getUsername())
                     .setParameter("password", user.getPassword())
+                    .setParameter("role", user.getRole())
                     .executeUpdate();
             // retrieve the user from the database to get its ID
             // or find a way to avoid one extra transaction
@@ -114,6 +124,9 @@ public class UserPersistence {
     }
 
     public User updateUser(User user) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 
@@ -139,6 +152,9 @@ public class UserPersistence {
     }
 
     public void removeUser(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
 

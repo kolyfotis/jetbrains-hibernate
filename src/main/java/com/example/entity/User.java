@@ -2,6 +2,7 @@ package com.example.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import org.apache.commons.codec.digest.DigestUtils;
 
 @Entity
 public class User {
@@ -40,7 +41,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = DigestUtils.sha256Hex(password);
     }
 
     @Override

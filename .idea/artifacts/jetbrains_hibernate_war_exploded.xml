@@ -53,6 +53,8 @@
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.36" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:2.36" />
           <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
+          <element id="library" level="project" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:2.1.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.11" />
         </element>
       </element>
       <element id="directory" name="META-INF">

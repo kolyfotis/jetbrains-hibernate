@@ -1,26 +1,40 @@
-package com.example;
+package com.example.tests;
 
-import com.example.entity.Department;
+import com.example.entity.User;
 import com.example.persistence.UserPersistence;
-import com.example.service.DepartmentService;
 
 import javax.persistence.*;
-import java.util.List;
 
-public class Main {
+public class Persistence {
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = javax.persistence.Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 //        DepartmentPersistence departmentPersistence = new DepartmentPersistence();
 //        DepartmentService departmentService = new DepartmentService();
-//        UserPersistence userPersistence = new UserPersistence();
+        UserPersistence userPersistence = new UserPersistence();
 
         try {
             transaction.begin();
 //          ------------------ TESTS BELOW --------------------
 
-//            userPersistence.getUserByUserName("user1");
+//            javax.persistence.NoResultException: No entity found for query
+//            User user2 = userPersistence.getUserByUserName("NOT_IN_DB");
+//            System.out.println("RETURN VALUE FOR NOT FOUND: " + user2);
+
+//            User user2 = userPersistence.getUserByUserName("user2");
+//            user2.setPassword("secret");
+//            userPersistence.updateUser(user2);
+//
+//            user2 = userPersistence.getUserByUserName("user2");
+//            System.out.println(user2);
+//
+//            User user1 = userPersistence.getUserByUserName("user1");
+//            user1.setPassword("secret");
+//            userPersistence.updateUser(user1);
+//
+//            user1 = userPersistence.getUserByUserName("user1");
+//            System.out.println(user1);
 
 //            Department department = new Department();
 //            department.setName("Data Analytics Department");
