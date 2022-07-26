@@ -2,6 +2,7 @@ package com.example.filters;
 
 import com.example.entity.User;
 import com.example.persistence.UserPersistence;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -23,6 +24,7 @@ public class SecurityFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         if (containerRequestContext.getUriInfo().getPath().contains(SECURED_URL_PREFIX)) {
             List<String> authHeader = containerRequestContext.getHeaders().get(AUTHORIZATION_HEADER_KEY);
+
             if (authHeader != null && authHeader.size() > 0) {
                 String authToken = authHeader.get(0);
                 authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
@@ -33,15 +35,18 @@ public class SecurityFilter implements ContainerRequestFilter {
                 String password = tokenizer.nextToken();
 
                 UserPersistence userPersistence = new UserPersistence();
-                User retrievedUser = userPersistence.getUserByUserName(userName);
-
-                if (retrievedUser.getUsername().equals(userName) &&
-                        retrievedUser.getPassword().equals(password) &&
-                        retrievedUser.getRole().equals("admin")) {
-                    return;
+                User retrievedUser = new User();
+                try {
+                    retrievedUser = userPersistence.getUserByUserName(userName);
+                    if (retrievedUser.getUsername().equals(userName) &&
+                            retrievedUser.getPassword().equals(DigestUtils.sha256Hex(password)) &&
+                            retrievedUser.getRole().equals("admin")) {
+                        return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-
             Response unauthorizedResponse = Response
                     .status(Response.Status.UNAUTHORIZED)
                     .entity("User cannot access the resource")
