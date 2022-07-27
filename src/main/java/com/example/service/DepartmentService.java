@@ -10,22 +10,42 @@ public class DepartmentService {
     DepartmentPersistence departmentPersistence = new DepartmentPersistence();
 
     public List<Department> getDepartments() {
-        return new ArrayList<>(departmentPersistence.getDepartments());
+        try {
+            return new ArrayList<>(departmentPersistence.getDepartments());
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public Department getDepartmentById(int id) {
-        return departmentPersistence.getDepartmentById(id);
+        try {
+            return departmentPersistence.getDepartmentById(id);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public Department addDepartment(Department department) {
-        return departmentPersistence.addDepartment(department);
+        try {
+            return departmentPersistence.addDepartment(department);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    public Department updateDepartment(Department department) {
-        return departmentPersistence.updateDepartment(department);
+    public Department updateDepartment(Department department) throws Exception {
+        try {
+            return departmentPersistence.updateDepartment(department);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    public void removeDepartment(int id) {
-        departmentPersistence.removeDepartment(id);
+    public void removeDepartment(int id) throws Exception {
+        try {
+            departmentPersistence.removeDepartment(id);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }
