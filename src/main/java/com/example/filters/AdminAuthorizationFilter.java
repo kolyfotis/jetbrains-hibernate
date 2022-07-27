@@ -9,19 +9,20 @@ import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.Objects;
 
-@UserAuthentication
+@AdminAuthorization
 @Provider
-public class UserAuthenticationFilter implements ContainerRequestFilter {
+public class AdminAuthorizationFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         User retrievedUser = HelperMethods.getUserByHeaders(containerRequestContext);
-        if (Objects.nonNull(retrievedUser)) {
+        if (Objects.nonNull(retrievedUser)
+                && retrievedUser.getRole().equals("admin")) {
             return;
         }
         Response unauthorizedResponse = Response
                 .status(Response.Status.UNAUTHORIZED)
-                .entity("Authentication failed.")
+                .entity("Authorization failed. Admin rights required.")
                 .build();
 
         containerRequestContext.abortWith(unauthorizedResponse);

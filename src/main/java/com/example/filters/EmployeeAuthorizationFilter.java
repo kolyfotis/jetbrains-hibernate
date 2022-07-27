@@ -9,19 +9,21 @@ import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.Objects;
 
-@UserAuthentication
+@EmployeeAuthorization
 @Provider
-public class UserAuthenticationFilter implements ContainerRequestFilter {
+public class EmployeeAuthorizationFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         User retrievedUser = HelperMethods.getUserByHeaders(containerRequestContext);
-        if (Objects.nonNull(retrievedUser)) {
+        if (Objects.nonNull(retrievedUser) &&
+                (retrievedUser.getRole().equals("admin") ||
+                        retrievedUser.getRole().equals("employee"))) {
             return;
         }
         Response unauthorizedResponse = Response
                 .status(Response.Status.UNAUTHORIZED)
-                .entity("Authentication failed.")
+                .entity("Authorization failed. Only employees can access this resource.")
                 .build();
 
         containerRequestContext.abortWith(unauthorizedResponse);
