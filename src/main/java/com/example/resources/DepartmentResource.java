@@ -1,7 +1,7 @@
 package com.example.resources;
 
 import com.example.entity.Department;
-import com.example.exceptions.DBExcMsg;
+import com.example.model.ErrorMessage;
 import com.example.service.DepartmentService;
 
 import javax.ws.rs.*;
@@ -29,8 +29,8 @@ public class DepartmentResource {
 //            System.out.println(e.getMessage());
 //            System.out.println("- - - - - - END - - - - - - ");
 
-            DBExcMsg dbException =
-                    new DBExcMsg(e.getMessage());
+            ErrorMessage dbException =
+                    new ErrorMessage(e.getMessage());
 
             return Response.serverError().entity(dbException).build();
         }
@@ -45,8 +45,8 @@ public class DepartmentResource {
         try {
             department = departmentService.getDepartmentById(id);
         } catch (Exception e) {
-            DBExcMsg dbException =
-                    new DBExcMsg(e.getMessage());
+            ErrorMessage dbException =
+                    new ErrorMessage(e.getMessage());
             return Response.status(422).entity(dbException).build();
         }
         return Response.ok().entity(department).build();
@@ -59,8 +59,8 @@ public class DepartmentResource {
         try {
             departmentService.addDepartment(department);
         } catch (Exception e) {
-            DBExcMsg dbException =
-                    new DBExcMsg(e.getMessage());
+            ErrorMessage dbException =
+                    new ErrorMessage(e.getMessage());
             return Response.status(422).entity(dbException).build();
         }
         return Response.status(201).build();
@@ -73,8 +73,8 @@ public class DepartmentResource {
         try {
             departmentService.updateDepartment(department);
         } catch (Exception e) {
-            DBExcMsg dbException =
-                    new DBExcMsg(e.getMessage());
+            ErrorMessage dbException =
+                    new ErrorMessage(e.getMessage());
             return Response.status(422).entity(dbException).build();
         }
         return Response.ok().entity(department).build();
@@ -86,8 +86,8 @@ public class DepartmentResource {
         try {
             departmentService.removeDepartment(id);
         } catch (Exception e) {
-            DBExcMsg dbException =
-                    new DBExcMsg(e.getMessage());
+            ErrorMessage dbException =
+                    new ErrorMessage(e.getMessage());
             return Response.status(422).entity(dbException).build();
         }
         return Response.status(200).build();

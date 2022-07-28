@@ -1,15 +1,15 @@
-package com.example.exceptions;
+package com.example.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class DBExcMsg {
+public class ErrorMessage {
     private String message;
 
-    public DBExcMsg() {
+    public ErrorMessage() {
     }
 
-    public DBExcMsg(String message) {
+    public ErrorMessage(String message) {
         this.message = message;
     }
 
@@ -23,7 +23,7 @@ public class DBExcMsg {
 
     @Override
     public String toString() {
-        return "DBExcMsg{" +
+        return "ErrorMessage{" +
                 "message='" + message + '\'' +
                 '}';
     }
