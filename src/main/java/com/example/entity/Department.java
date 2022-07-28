@@ -15,6 +15,9 @@ public class Department {
     @Column(name = "name")
     private String name;
 
+    public Department() {
+    }
+
     public int getId() {
         return id;
     }
