@@ -3,13 +3,13 @@ package com.example.model;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ErrorMessage {
+public class Message {
     private String message;
 
-    public ErrorMessage() {
+    public Message() {
     }
 
-    public ErrorMessage(String message) {
+    public Message(String message) {
         this.message = message;
     }
 
@@ -23,7 +23,7 @@ public class ErrorMessage {
 
     @Override
     public String toString() {
-        return "ErrorMessage{" +
+        return "Message{" +
                 "message='" + message + '\'' +
                 '}';
     }
