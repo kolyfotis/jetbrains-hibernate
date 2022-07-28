@@ -1,3 +1,7 @@
+/*
+* Department entity class. Generated using internal Intellij IDEA
+* persistence tools.
+* */
 package com.example.entity;
 
 import javax.persistence.*;
@@ -15,6 +19,9 @@ public class Department {
     @Column(name = "name")
     private String name;
 
+    /*
+    * Required for returning an entity as XML
+    * */
     public Department() {
     }
 

@@ -1,3 +1,7 @@
+/*
+ * Employee entity class. Generated using internal Intellij IDEA
+ * persistence tools.
+ * */
 package com.example.entity;
 
 import javax.persistence.*;

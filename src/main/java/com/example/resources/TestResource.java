@@ -1,3 +1,6 @@
+/*
+* An endpoint for testing purposes.
+* */
 package com.example.resources;
 
 import com.example.filters.AdminAuthorization;

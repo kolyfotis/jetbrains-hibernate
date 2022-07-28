@@ -1,3 +1,6 @@
+/*
+* Implementation of HttpLogger Filter.
+* */
 package com.example.filters;
 
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +18,11 @@ import java.io.IOException;
 public class HttpLoggerFilter implements ContainerRequestFilter, ContainerResponseFilter {
     private Logger logger = LogManager.getLogger();
 
+    /*
+    * Executed upon receiving a request. Creates a log containing the request's
+    * method, path, mediaType (if present), and whether the request contains
+    * an entity.
+    * */
     @Override
     public void filter(ContainerRequestContext req) throws IOException {
         System.out.println("HttpLoggerFilter::filter(): REQUEST FILTER:");
@@ -36,6 +44,10 @@ public class HttpLoggerFilter implements ContainerRequestFilter, ContainerRespon
         logger.info(log);
     }
 
+    /*
+     * Executed when sending  a response. Creates a log containing the response's
+     * status code, headers and entity.
+     * */
     @Override
     public void filter(ContainerRequestContext req,
                        ContainerResponseContext res) throws IOException {

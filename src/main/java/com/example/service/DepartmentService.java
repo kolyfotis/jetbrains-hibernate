@@ -1,3 +1,6 @@
+/*
+* Used to delegate method call from the Resource to Persistence class
+* */
 package com.example.service;
 
 import com.example.entity.Department;
@@ -17,7 +20,7 @@ public class DepartmentService {
         }
     }
 
-    public Department getDepartmentById(int id) {
+    public Department getDepartmentById(int id) throws Exception {
         try {
             return departmentPersistence.getDepartmentById(id);
         } catch (Exception e) {

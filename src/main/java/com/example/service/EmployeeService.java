@@ -1,3 +1,6 @@
+/*
+ * Used to delegate method call from the Resource to Persistence class
+ * */
 package com.example.service;
 
 import com.example.entity.Employee;

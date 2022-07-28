@@ -1,3 +1,9 @@
+/*
+ * User entity class. Generated using internal Intellij IDEA
+ * persistence tools.
+ *
+ * Password setter will hash User's password, so it cannot be recovered after set.
+ * */
 package com.example.entity;
 
 import javax.persistence.*;

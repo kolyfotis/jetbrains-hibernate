@@ -1,3 +1,6 @@
+/*
+ * Create @UserAuthorization Annotation, available to classes and methods.
+ * */
 package com.example.filters;
 
 import javax.ws.rs.NameBinding;

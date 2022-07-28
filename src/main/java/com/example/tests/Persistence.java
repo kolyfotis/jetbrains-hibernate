@@ -1,3 +1,6 @@
+/*
+* Run tests that require connection to the database
+* */
 package com.example.tests;
 
 import com.example.entity.User;

@@ -1,3 +1,9 @@
+/*
+* An endpoint that can be used to access basic CRUD operations for Department Entity.
+* Can consume & produce both JSON and XML.
+* Uses HttpLogger to log the requests.
+* Requires Admin rights to delete a department.
+* */
 package com.example.resources;
 
 import com.example.entity.Department;
@@ -13,12 +19,12 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("departments")
+@HttpLogger
 public class DepartmentResource {
 
     DepartmentService departmentService = new DepartmentService();
 
     @GET
-    @HttpLogger
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getDepartments() {
         List<Department> departments = null;
@@ -43,7 +49,6 @@ public class DepartmentResource {
     }
 
     @GET
-    @HttpLogger
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Path("/{id: \\d+}")
     public Response getDepartmentById(@PathParam("id") int id) {
@@ -61,7 +66,6 @@ public class DepartmentResource {
     }
 
     @POST
-    @HttpLogger
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response addDepartment(Department department) {
@@ -78,7 +82,6 @@ public class DepartmentResource {
     }
 
     @PUT
-    @HttpLogger
     @Path("/{id: \\d+}")
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -97,7 +100,6 @@ public class DepartmentResource {
     }
 
     @DELETE
-    @HttpLogger
     @Path("/{id: \\d+}")
     @AdminAuthorization
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

@@ -1,3 +1,6 @@
+/*
+* Run simple tests that require no persistence
+* */
 package com.example.tests;
 
 import org.apache.commons.codec.digest.DigestUtils;

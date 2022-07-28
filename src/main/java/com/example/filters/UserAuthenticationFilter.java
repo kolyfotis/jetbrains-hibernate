@@ -1,3 +1,7 @@
+/*
+ * Implementation of AdminAuthorization Filter. Allows access to authenticated users
+ * only. Returns unauthorized Response status code & message if not authenticated.
+ * */
 package com.example.filters;
 
 import com.example.entity.User;

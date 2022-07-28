@@ -1,3 +1,6 @@
+/*
+* Implements only one method to retrieve all Employees from the database
+* */
 package com.example.persistence;
 
 import com.example.entity.Employee;

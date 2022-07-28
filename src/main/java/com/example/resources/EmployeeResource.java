@@ -1,3 +1,7 @@
+/*
+* An endpoint used to return all employees from the database.
+* Produces only JSON Response objects.
+* */
 package com.example.resources;
 
 import com.example.entity.Employee;

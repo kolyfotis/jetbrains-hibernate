@@ -1,3 +1,6 @@
+/*
+* This class contains helper methods for filters.
+* */
 package com.example.filters;
 
 import com.example.entity.User;
@@ -13,6 +16,10 @@ public class HelperMethods {
     private static final String AUTHORIZATION_HEADER_KEY = "Authorization";
     private static final String AUTHORIZATION_HEADER_PREFIX = "Basic ";
 
+    /*
+    * Receives a request context and returns a User object if the user is found
+    * and authenticated, otherwise returns null.
+    * */
     public static User getUserByHeaders(ContainerRequestContext containerRequestContext) {
         List<String> authHeader = containerRequestContext.getHeaders().get(AUTHORIZATION_HEADER_KEY);
 

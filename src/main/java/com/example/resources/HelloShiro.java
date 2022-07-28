@@ -1,3 +1,6 @@
+/*
+* Test for Apache Shiro Framework
+* */
 package com.example.resources;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;

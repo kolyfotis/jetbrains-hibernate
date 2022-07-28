@@ -1,3 +1,6 @@
+/*
+ * Implements basic CRUD functionality for User entity, making transactions to the database.
+ * */
 package com.example.persistence;
 
 import com.example.entity.User;
@@ -8,6 +11,10 @@ import java.util.List;
 
 public class UserPersistence {
 
+    /*
+     * Returns a list of all Users in the User table including
+     * all the table's fields.
+     * */
     public List<User> getUsers() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -34,6 +41,10 @@ public class UserPersistence {
         return users;
     }
 
+    /*
+     * Receives an integer and returns a User if the id is valid.
+     * Otherwise, throws an exception.
+     * */
     public User getUserById(int id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -61,6 +72,10 @@ public class UserPersistence {
         return user;
     }
 
+    /*
+     * Receives a String, retrieves a User from the database and returns this User.
+     * Does not handle "Entity not found" errors.
+     * */
     public User getUserByUserName(String userName) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -89,6 +104,9 @@ public class UserPersistence {
         return user;
     }
 
+    /*
+     * Receives a User object, stores it in the database and returns this User.
+     * */
     public User addUser(User user) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -123,6 +141,10 @@ public class UserPersistence {
         return user;
     }
 
+    /*
+     * Receives a User object, updates and returns it if the id is valid.
+     * Does not handle "Entity not found" errors.
+     * */
     public User updateUser(User user) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -151,6 +173,10 @@ public class UserPersistence {
         return user;
     }
 
+    /*
+     * Receives an integer, deletes the Department, and returns a Message if the id is valid.
+     * Does not handle "Entity not found" errors.
+     * */
     public void removeUser(int id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

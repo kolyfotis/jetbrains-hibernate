@@ -1,3 +1,6 @@
+/*
+* A simple class used to send a String as entity (Object) to a Response
+* */
 package com.example.model;
 
 import javax.xml.bind.annotation.XmlRootElement;

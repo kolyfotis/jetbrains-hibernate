@@ -15,3 +15,27 @@ Department{id=1, name='Software Development'},
 Department{id=2, name='Data Analytics'}, 
 Department{id=3, name='Frontend Development'}, 
 Department{id=9, name='Marketing'}] |
+16:25:41.681 [http-nio-8080-exec-5] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/99 | MediaType: EMPTY | Has Entity: false |
+16:25:41.698 [http-nio-8080-exec-5] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:25:41.730 [http-nio-8080-exec-5] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+16:25:41.730 [http-nio-8080-exec-5] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+16:25:41.731 [http-nio-8080-exec-5] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+16:25:41.731 [http-nio-8080-exec-5] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+16:25:41.731 [http-nio-8080-exec-5] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+16:25:41.752 [http-nio-8080-exec-5] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16:25:41.814 [http-nio-8080-exec-5] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:25:41.833 [http-nio-8080-exec-5] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+16:25:41.839 [http-nio-8080-exec-5] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 422 | Headers: {Content-Type=[application/xml]} | Entity: Message{message='No entity found for query'} |
+16:28:50.859 [http-nio-8080-exec-10] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/99 | MediaType: EMPTY | Has Entity: false |
+16:28:51.009 [http-nio-8080-exec-10] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:28:51.199 [http-nio-8080-exec-10] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+16:28:51.688 [http-nio-8080-exec-10] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16:28:52.145 [http-nio-8080-exec-10] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+16:28:52.158 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+16:28:52.158 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+16:28:52.158 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+16:28:52.165 [http-nio-8080-exec-10] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+16:28:52.637 [http-nio-8080-exec-10] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16:28:54.248 [http-nio-8080-exec-10] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:28:54.783 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+16:28:54.798 [http-nio-8080-exec-10] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 422 | Headers: {Content-Type=[application/xml]} | Entity: Message{message='Invalid id.'} |

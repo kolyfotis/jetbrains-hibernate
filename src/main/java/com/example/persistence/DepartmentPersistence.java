@@ -1,3 +1,6 @@
+/*
+* Implements basic CRUD functionality for Department entity, making transactions to the database.
+* */
 package com.example.persistence;
 
 import com.example.entity.Department;
@@ -8,6 +11,10 @@ import java.util.List;
 
 public class DepartmentPersistence {
 
+    /*
+    * Returns a list of all Departments in the Department table including
+    * all the table's fields.
+    * */
     public List<Department> getDepartments() {
         List<Department> departments = new ArrayList<>();
 
@@ -39,7 +46,11 @@ public class DepartmentPersistence {
         return departments;
     }
 
-    public Department getDepartmentById(int id) {
+    /*
+     * Receives an integer and returns a Department if the id is valid.
+     * Otherwise, throws an exception.
+     * */
+    public Department getDepartmentById(int id) throws Exception {
         Department department = new Department();
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -49,9 +60,13 @@ public class DepartmentPersistence {
             try {
                 transaction.begin();
 
-                Query selectDepartment = entityManager.createNativeQuery("select * from Department where id =:deptId", Department.class);
-                selectDepartment.setParameter("deptId", id);
-                department = (Department) selectDepartment.getSingleResult();
+                try {
+                    Query selectDepartment = entityManager.createNativeQuery("select * from Department where id =:deptId", Department.class);
+                    selectDepartment.setParameter("deptId", id);
+                    department = (Department) selectDepartment.getSingleResult();
+                } catch (Exception e) {
+                    throw new Exception("Invalid id.");
+                }
                 // LOGS
                 System.out.println("LOG: DepartmentPersistence::getDepartmentById(): ");
                 System.out.println(department);
@@ -72,6 +87,9 @@ public class DepartmentPersistence {
         return department;
     }
 
+    /*
+     * Receives a Department, stores it in the database and returns this Department.
+     * */
     public Department addDepartment(Department department) {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -110,6 +128,10 @@ public class DepartmentPersistence {
         return department;
     }
 
+    /*
+     * Receives a Department, updates and returns it if the id is valid.
+     * Otherwise, throws an exception.
+     * */
     public Department updateDepartment(Department department) throws Exception {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -149,6 +171,10 @@ public class DepartmentPersistence {
         return department;
     }
 
+    /*
+     * Receives an integer, deletes the Department, and returns a Message if the id is valid.
+     * Otherwise, throws an exception.
+     * */
     public void removeDepartment(int id) throws Exception {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
