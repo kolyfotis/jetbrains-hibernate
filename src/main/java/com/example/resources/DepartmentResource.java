@@ -34,6 +34,7 @@ public class DepartmentResource {
             departments = departmentService.getDepartments();
             departmentsEntity = new GenericEntity<List<Department>>(departments) {};
         } catch (Exception e) {
+            e.printStackTrace();
 //            System.out.println("\n\nERROR: DepartmentResource::getDepartments(): " +
 //                    "Error getting departments\n\n");
 //            System.out.println("MESSAGE:");

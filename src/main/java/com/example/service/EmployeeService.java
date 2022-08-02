@@ -16,4 +16,8 @@ public class EmployeeService {
     public List<Employee> getEmployees() {
         return new ArrayList<>(employeePersistence.getEmployees());
     }
+
+    public List<Employee> getEmployeesByDepartment(String department) {
+        return new ArrayList<>(employeePersistence.getEmployeesByDepartment(department));
+    }
 }

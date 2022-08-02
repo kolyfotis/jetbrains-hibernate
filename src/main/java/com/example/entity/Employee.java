@@ -4,11 +4,13 @@
  * */
 package com.example.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-import java.util.Objects;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.*;
 
 @Entity
-@NamedQuery(name = "Employee.byDept", query = "SELECT e FROM Employee e WHERE e.departmentByDepartmentId.name= ?1")
+@XmlRootElement
 public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -20,12 +22,15 @@ public class Employee {
     @Basic
     @Column(name = "lastName")
     private String lastName;
-    @Basic
-    @Column(name = "department_id")
-    private Integer departmentId;
-    @ManyToOne
-    @JoinColumn(name = "department_id", referencedColumnName = "id", insertable=false, updatable=false)
-    private Department departmentByDepartmentId;
+
+    @ManyToMany
+    @JoinTable(
+            name = "emp_dept",
+            joinColumns = {@JoinColumn(name = "emp_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dept_id", referencedColumnName = "id")}
+    )
+    @JsonbTransient
+    private Set<Department> departments = new HashSet<Department>();
 
     public int getId() {
         return id;
@@ -51,33 +56,39 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(departmentId, employee.departmentId);
+        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, departmentId);
+        return Objects.hash(id, firstName, lastName);
     }
 
-    public Department getDepartmentByDepartmentId() {
-        return departmentByDepartmentId;
+    public Set<Department> getDepartments() {
+        return departments;
     }
 
-    public void setDepartmentByDepartmentId(Department departmentByDepartmentId) {
-        this.departmentByDepartmentId = departmentByDepartmentId;
+    public void setDepartments(Set<Department> departments) {
+        this.departments = departments;
+    }
+
+    public void addDepartment(Department department) {
+        // Add department to this Employee's departments list
+        this.departments.add(department);
+        // Add this Department to the Department's list of Employee's
+        department.getEmployees().add(this);
+    }
+
+    public void removeDepartment(Department department) {
+        // Add department to this Employee's departments list
+        this.departments.remove(department);
+        // Add this Department to the Department's list of Employee's
+        department.getEmployees().remove(this);
     }
 
     @Override
@@ -86,7 +97,6 @@ public class Employee {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", departmentByDepartmentId=" + departmentByDepartmentId +
                 '}';
     }
 }

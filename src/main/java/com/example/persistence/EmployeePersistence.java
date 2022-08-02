@@ -36,4 +36,31 @@ public class EmployeePersistence {
         }
         return employees;
     }
+
+    public List<Employee> getEmployeesByDepartment(String department) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        List<Employee> employees = new ArrayList<>();
+
+        try {
+            transaction.begin();
+
+            Query selectEmployeesByDepartment = entityManager.createNativeQuery("select * from employee e " +
+                    "inner join emp_dept ed on e.id = ed.emp_id " +
+                    "inner join department d on ed.dept_id = d.id " +
+                    "where d.name =:deptName", Employee.class);
+            selectEmployeesByDepartment.setParameter("deptName", department);
+            employees = (List<Employee>) selectEmployeesByDepartment.getResultList();
+
+            transaction.commit();
+        } finally {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            entityManager.close();
+            entityManagerFactory.close();
+        }
+        return employees;
+    }
 }

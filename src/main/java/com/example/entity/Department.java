@@ -4,9 +4,10 @@
 * */
 package com.example.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @XmlRootElement
@@ -18,6 +19,10 @@ public class Department {
     @Basic
     @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy = "departments")
+    @JsonbTransient
+    private Set<Employee> employees = new HashSet<Employee>();
 
     /*
     * Required for returning an entity as XML
@@ -39,6 +44,14 @@ public class Department {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
