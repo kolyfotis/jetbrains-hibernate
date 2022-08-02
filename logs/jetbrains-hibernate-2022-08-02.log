@@ -1,0 +1,231 @@
+10:25:12.352 [http-nio-8080-exec-4] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:25:12.531 [http-nio-8080-exec-4] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+10:25:13.046 [http-nio-8080-exec-4] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:25:13.533 [http-nio-8080-exec-4] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:25:13.556 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:25:13.556 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:25:13.556 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:25:13.562 [http-nio-8080-exec-4] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:25:14.194 [http-nio-8080-exec-4] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:25:15.993 [http-nio-8080-exec-4] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:25:16.433 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:25:33.424 [http-nio-8080-exec-10] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments | MediaType: EMPTY | Has Entity: false |
+10:25:33.438 [http-nio-8080-exec-10] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:25:33.472 [http-nio-8080-exec-10] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:25:33.472 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:25:33.472 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:25:33.472 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:25:33.472 [http-nio-8080-exec-10] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:25:33.488 [http-nio-8080-exec-10] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:25:33.542 [http-nio-8080-exec-10] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:25:33.546 [http-nio-8080-exec-10] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:25:33.552 [http-nio-8080-exec-10] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: [
+Department{id=1, name='Software Development'}, 
+Department{id=2, name='Data Analytics'}, 
+Department{id=3, name='Frontend Development'}, 
+Department{id=9, name='Marketing'}] |
+10:28:43.629 [http-nio-8080-exec-4] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments | MediaType: EMPTY | Has Entity: false |
+10:28:43.795 [http-nio-8080-exec-4] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:28:44.071 [http-nio-8080-exec-4] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+10:28:44.577 [http-nio-8080-exec-4] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10:28:45.027 [http-nio-8080-exec-4] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:28:45.039 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:28:45.039 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:28:45.039 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:28:45.046 [http-nio-8080-exec-4] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:28:45.503 [http-nio-8080-exec-4] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:28:47.260 [http-nio-8080-exec-4] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:28:47.647 [http-nio-8080-exec-4] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:28:47.663 [http-nio-8080-exec-4] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: [
+Department{id=1, name='Software Development'}, 
+Department{id=2, name='Data Analytics'}, 
+Department{id=3, name='Frontend Development'}, 
+Department{id=9, name='Marketing'}] |
+10:29:18.325 [http-nio-8080-exec-8] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/1 | MediaType: EMPTY | Has Entity: false |
+10:29:18.342 [http-nio-8080-exec-8] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:29:18.376 [http-nio-8080-exec-8] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:29:18.376 [http-nio-8080-exec-8] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:29:18.376 [http-nio-8080-exec-8] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:29:18.377 [http-nio-8080-exec-8] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:29:18.377 [http-nio-8080-exec-8] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:29:18.393 [http-nio-8080-exec-8] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:29:18.455 [http-nio-8080-exec-8] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:29:18.474 [http-nio-8080-exec-8] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:29:18.476 [http-nio-8080-exec-8] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: 
+Department{id=1, name='Software Development'} |
+10:29:22.502 [http-nio-8080-exec-2] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/9 | MediaType: EMPTY | Has Entity: false |
+10:29:22.504 [http-nio-8080-exec-2] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:29:22.533 [http-nio-8080-exec-2] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:29:22.533 [http-nio-8080-exec-2] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:29:22.533 [http-nio-8080-exec-2] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:29:22.533 [http-nio-8080-exec-2] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:29:22.533 [http-nio-8080-exec-2] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:29:22.546 [http-nio-8080-exec-2] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:29:22.612 [http-nio-8080-exec-2] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:29:22.615 [http-nio-8080-exec-2] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:29:22.616 [http-nio-8080-exec-2] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: 
+Department{id=9, name='Marketing'} |
+10:29:24.747 [http-nio-8080-exec-7] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/ | MediaType: EMPTY | Has Entity: false |
+10:29:24.750 [http-nio-8080-exec-7] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:29:24.776 [http-nio-8080-exec-7] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:29:24.776 [http-nio-8080-exec-7] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:29:24.776 [http-nio-8080-exec-7] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:29:24.776 [http-nio-8080-exec-7] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:29:24.776 [http-nio-8080-exec-7] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:29:24.787 [http-nio-8080-exec-7] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:29:24.821 [http-nio-8080-exec-7] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:29:24.825 [http-nio-8080-exec-7] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:29:24.827 [http-nio-8080-exec-7] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: [
+Department{id=1, name='Software Development'}, 
+Department{id=2, name='Data Analytics'}, 
+Department{id=3, name='Frontend Development'}, 
+Department{id=9, name='Marketing'}] |
+10:29:30.249 [http-nio-8080-exec-9] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:29:30.279 [http-nio-8080-exec-9] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:29:30.279 [http-nio-8080-exec-9] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:29:30.279 [http-nio-8080-exec-9] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:29:30.279 [http-nio-8080-exec-9] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:29:30.279 [http-nio-8080-exec-9] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:29:30.293 [http-nio-8080-exec-9] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:29:30.328 [http-nio-8080-exec-9] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:29:30.331 [http-nio-8080-exec-9] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:29:37.731 [http-nio-8080-exec-11] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments | MediaType: EMPTY | Has Entity: false |
+10:29:37.734 [http-nio-8080-exec-11] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:29:37.759 [http-nio-8080-exec-11] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:29:37.759 [http-nio-8080-exec-11] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:29:37.759 [http-nio-8080-exec-11] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:29:37.759 [http-nio-8080-exec-11] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:29:37.759 [http-nio-8080-exec-11] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:29:37.770 [http-nio-8080-exec-11] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:29:37.805 [http-nio-8080-exec-11] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:29:37.808 [http-nio-8080-exec-11] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:29:37.810 [http-nio-8080-exec-11] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: [
+Department{id=1, name='Software Development'}, 
+Department{id=2, name='Data Analytics'}, 
+Department{id=3, name='Frontend Development'}, 
+Department{id=9, name='Marketing'}] |
+10:41:02.642 [http-nio-8080-exec-14] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/1 | MediaType: EMPTY | Has Entity: false |
+10:41:02.670 [http-nio-8080-exec-14] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:41:02.699 [http-nio-8080-exec-14] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:41:02.699 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:41:02.699 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:41:02.699 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:41:02.699 [http-nio-8080-exec-14] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:41:02.712 [http-nio-8080-exec-14] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:41:02.763 [http-nio-8080-exec-14] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:41:02.766 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:41:02.767 [http-nio-8080-exec-14] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: 
+Department{id=1, name='Software Development'} |
+10:41:05.392 [http-nio-8080-exec-15] INFO  com.example.filters.HttpLoggerFilter - REQUEST | HTTPMethod: GET | Path: http://localhost:8080/jetbrains-hibernate/webapi/departments/ | MediaType: EMPTY | Has Entity: false |
+10:41:05.394 [http-nio-8080-exec-15] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:41:05.416 [http-nio-8080-exec-15] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:41:05.416 [http-nio-8080-exec-15] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:41:05.416 [http-nio-8080-exec-15] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:41:05.416 [http-nio-8080-exec-15] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:41:05.416 [http-nio-8080-exec-15] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:41:05.428 [http-nio-8080-exec-15] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:41:05.460 [http-nio-8080-exec-15] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:41:05.462 [http-nio-8080-exec-15] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:41:05.463 [http-nio-8080-exec-15] INFO  com.example.filters.HttpLoggerFilter - RESPONSE | Status: 200 | Headers: {Content-Type=[application/json]} | Entity: [
+Department{id=1, name='Software Development'}, 
+Department{id=2, name='Data Analytics'}, 
+Department{id=3, name='Frontend Development'}, 
+Department{id=9, name='Marketing'}] |
+10:41:14.913 [http-nio-8080-exec-17] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:41:14.939 [http-nio-8080-exec-17] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:41:14.939 [http-nio-8080-exec-17] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:41:14.939 [http-nio-8080-exec-17] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:41:14.939 [http-nio-8080-exec-17] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:41:14.939 [http-nio-8080-exec-17] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:41:14.951 [http-nio-8080-exec-17] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:41:14.981 [http-nio-8080-exec-17] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:41:14.986 [http-nio-8080-exec-17] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+10:42:14.340 [http-nio-8080-exec-18] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:42:14.380 [http-nio-8080-exec-18] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+10:42:14.380 [http-nio-8080-exec-18] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+10:42:14.380 [http-nio-8080-exec-18] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+10:42:14.380 [http-nio-8080-exec-18] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+10:42:14.380 [http-nio-8080-exec-18] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:42:14.392 [http-nio-8080-exec-18] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10:42:14.438 [http-nio-8080-exec-18] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:42:14.441 [http-nio-8080-exec-18] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:07:37.563 [http-nio-8080-exec-19] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:07:37.813 [http-nio-8080-exec-19] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+11:07:38.336 [http-nio-8080-exec-19] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:07:38.796 [http-nio-8080-exec-19] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:07:38.807 [http-nio-8080-exec-19] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:07:38.808 [http-nio-8080-exec-19] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:07:38.808 [http-nio-8080-exec-19] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:07:38.815 [http-nio-8080-exec-19] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:07:39.258 [http-nio-8080-exec-19] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:07:40.994 [http-nio-8080-exec-19] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:07:41.403 [http-nio-8080-exec-19] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:09:49.087 [http-nio-8080-exec-21] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:09:49.389 [http-nio-8080-exec-21] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+11:09:49.903 [http-nio-8080-exec-21] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:09:50.356 [http-nio-8080-exec-21] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:09:50.368 [http-nio-8080-exec-21] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:09:50.368 [http-nio-8080-exec-21] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:09:50.368 [http-nio-8080-exec-21] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:09:50.375 [http-nio-8080-exec-21] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:09:50.823 [http-nio-8080-exec-21] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:09:52.585 [http-nio-8080-exec-21] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:09:52.983 [http-nio-8080-exec-21] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:10:56.802 [http-nio-8080-exec-23] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:10:57.053 [http-nio-8080-exec-23] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+11:10:57.567 [http-nio-8080-exec-23] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:10:58.017 [http-nio-8080-exec-23] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:10:58.028 [http-nio-8080-exec-23] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:10:58.028 [http-nio-8080-exec-23] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:10:58.028 [http-nio-8080-exec-23] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:10:58.035 [http-nio-8080-exec-23] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:10:58.497 [http-nio-8080-exec-23] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:11:00.186 [http-nio-8080-exec-23] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:11:00.573 [http-nio-8080-exec-23] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:11:17.892 [http-nio-8080-exec-27] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:11:17.923 [http-nio-8080-exec-27] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:11:17.923 [http-nio-8080-exec-27] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:11:17.923 [http-nio-8080-exec-27] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:11:17.923 [http-nio-8080-exec-27] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:11:17.924 [http-nio-8080-exec-27] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:11:17.934 [http-nio-8080-exec-27] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:11:17.988 [http-nio-8080-exec-27] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:11:17.991 [http-nio-8080-exec-27] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:12:54.945 [http-nio-8080-exec-14] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:12:55.175 [http-nio-8080-exec-14] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+11:12:55.710 [http-nio-8080-exec-14] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11:12:56.176 [http-nio-8080-exec-14] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:12:56.188 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:12:56.188 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:12:56.189 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:12:56.196 [http-nio-8080-exec-14] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:12:56.674 [http-nio-8080-exec-14] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:12:58.398 [http-nio-8080-exec-14] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:12:58.799 [http-nio-8080-exec-14] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:13:20.473 [http-nio-8080-exec-12] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:13:20.503 [http-nio-8080-exec-12] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:13:20.503 [http-nio-8080-exec-12] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:13:20.503 [http-nio-8080-exec-12] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:13:20.503 [http-nio-8080-exec-12] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:13:20.503 [http-nio-8080-exec-12] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:13:20.514 [http-nio-8080-exec-12] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:13:20.573 [http-nio-8080-exec-12] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:13:20.576 [http-nio-8080-exec-12] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:13:26.273 [http-nio-8080-exec-29] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:13:26.297 [http-nio-8080-exec-29] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:13:26.297 [http-nio-8080-exec-29] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:13:26.298 [http-nio-8080-exec-29] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:13:26.298 [http-nio-8080-exec-29] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:13:26.298 [http-nio-8080-exec-29] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:13:26.308 [http-nio-8080-exec-29] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:13:26.341 [http-nio-8080-exec-29] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:13:26.344 [http-nio-8080-exec-29] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
+11:13:37.488 [http-nio-8080-exec-28] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11:13:37.511 [http-nio-8080-exec-28] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+11:13:37.512 [http-nio-8080-exec-28] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/myDB]
+11:13:37.512 [http-nio-8080-exec-28] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=user, password=****}
+11:13:37.512 [http-nio-8080-exec-28] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:13:37.512 [http-nio-8080-exec-28] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+11:13:37.523 [http-nio-8080-exec-28] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+11:13:37.557 [http-nio-8080-exec-28] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11:13:37.560 [http-nio-8080-exec-28] INFO  org.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/myDB]
