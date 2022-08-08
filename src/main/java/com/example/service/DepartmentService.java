@@ -28,6 +28,7 @@ public class DepartmentService {
         }
     }
 
+
     public Department addDepartment(Department department) {
         try {
             return departmentPersistence.addDepartment(department);
@@ -44,9 +45,17 @@ public class DepartmentService {
         }
     }
 
-    public void removeDepartment(int id) throws Exception {
+    public void removeDepartmentById(int id) throws Exception {
         try {
-            departmentPersistence.removeDepartment(id);
+            departmentPersistence.removeDepartmentById(id);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void removeDepartmentByName(String name) throws Exception {
+        try {
+            departmentPersistence.removeDepartmentByName(name);
         } catch (Exception e) {
             throw e;
         }

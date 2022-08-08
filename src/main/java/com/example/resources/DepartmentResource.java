@@ -86,7 +86,7 @@ public class DepartmentResource {
     @Path("/{id: \\d+}")
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response updateDepartment(@PathParam("id") int id, Department department) {
+    public Response updateDepartmentById(@PathParam("id") int id, Department department) {
         department.setId(id);
         GenericEntity<Department> departmentEntity = null;
         try {
@@ -104,9 +104,9 @@ public class DepartmentResource {
     @Path("/{id: \\d+}")
     @AdminAuthorization
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response removeDepartment(@PathParam("id") int id) {
+    public Response removeDepartmentById(@PathParam("id") int id) {
         try {
-            departmentService.removeDepartment(id);
+            departmentService.removeDepartmentById(id);
         } catch (Exception e) {
             return Response.status(422)
                     .entity(new Message(e.getMessage()))
@@ -114,6 +114,27 @@ public class DepartmentResource {
         }
         return Response.status(200)
                 .entity(new Message("Department with id " + id + " deleted."))
+                .build();
+    }
+
+    @DELETE
+    @AdminAuthorization
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Response removeDepartmentByName(@DefaultValue("") @QueryParam("name") String name) {
+        if (name.equals("")) {
+            return Response.status(404)
+                    .entity(new Message("Please provide a valid department name."))
+                    .build();
+        }
+        try {
+            departmentService.removeDepartmentByName(name);
+        } catch (Exception e) {
+            return Response.status(422)
+                    .entity(new Message(e.getMessage()))
+                    .build();
+        }
+        return Response.status(200)
+                .entity(new Message("Department: |" + name + "| deleted."))
                 .build();
     }
 

@@ -175,7 +175,7 @@ public class DepartmentPersistence {
      * Receives an integer, deletes the Department, and returns a Message if the id is valid.
      * Otherwise, throws an exception.
      * */
-    public void removeDepartment(int id) throws Exception {
+    public void removeDepartmentById(int id) throws Exception {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -192,8 +192,44 @@ public class DepartmentPersistence {
                 }
 
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::removeDepartment(): ");
+                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
                 System.out.println(String.format("Department with id: %d was removed.", id));
+
+                transaction.commit();
+            } catch (Exception e) {
+                throw e;
+            }
+            finally {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                entityManager.close();
+                entityManagerFactory.close();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void removeDepartmentByName(String name) throws Exception {
+        try {
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            EntityTransaction transaction = entityManager.getTransaction();
+            try {
+                transaction.begin();
+
+                int lines = entityManager.createNativeQuery("delete from Department where name =:deptName", Department.class)
+                        .setParameter("deptName", name)
+                        .executeUpdate();
+
+                if (lines < 1) {
+                    throw new Exception("Invalid name.");
+                }
+
+                // LOGS
+                System.out.println("LOG: DepartmentPersistence::removeDepartmentByName(): ");
+                System.out.println(String.format("Department |%s| was removed.", name));
 
                 transaction.commit();
             } catch (Exception e) {

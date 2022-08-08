@@ -7,6 +7,7 @@ package com.example.entity;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.*;
 
 @Entity
@@ -22,6 +23,7 @@ public class Department {
 
     @ManyToMany(mappedBy = "departments")
     @JsonbTransient
+    @XmlTransient
     private Set<Employee> employees = new HashSet<Employee>();
 
     /*
@@ -46,6 +48,7 @@ public class Department {
         this.name = name;
     }
 
+    @XmlTransient
     public Set<Employee> getEmployees() {
         return employees;
     }

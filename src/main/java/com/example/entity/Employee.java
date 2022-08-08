@@ -7,6 +7,7 @@ package com.example.entity;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.*;
 
 @Entity
@@ -30,6 +31,7 @@ public class Employee {
             inverseJoinColumns = {@JoinColumn(name = "dept_id", referencedColumnName = "id")}
     )
     @JsonbTransient
+    @XmlTransient
     private Set<Department> departments = new HashSet<Department>();
 
     public int getId() {
@@ -56,19 +58,7 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName);
-    }
-
+    @XmlTransient
     public Set<Department> getDepartments() {
         return departments;
     }
@@ -89,6 +79,19 @@ public class Employee {
         this.departments.remove(department);
         // Add this Department to the Department's list of Employee's
         department.getEmployees().remove(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName);
     }
 
     @Override
