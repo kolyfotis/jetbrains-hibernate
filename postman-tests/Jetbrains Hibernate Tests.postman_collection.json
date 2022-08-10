@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "87f04547-d51c-4648-9d19-24ba91ee1bf7",
+		"name": "Jetbrains Hibernate Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19522010"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET all Departments JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET one Department JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// let urlVar = pm.variables.get(\"url\");\r",
+									"// console.log(`URL is ${urlVar}`);\r",
+									"\r",
+									"// pm.variables.set(\"departmentName\", \"BLABLA\")\r",
+									"// console.log(`departmentName is ${pm.variables.get(\"departmentName\")}`);\r",
+									"\r",
+									"// dept = JSON.parse(responseBody);\r",
+									"// console.log(dept.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "POST PUT and DELETE department",
+			"item": [
+				{
+					"name": "GET Departments before POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"departments = JSON.parse(responseBody);\r",
+									"// console.log(departments.length);\r",
+									"\r",
+									"pm.variables.set(\"deptsBefore\", departments.length);\r",
+									"// console.log(pm.variables.get(\"deptsBefore\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Department",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"dept = JSON.parse(responseBody);\r",
+									"// console.log(dept.id);\r",
+									"pm.variables.set(\"deptId\", dept.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201 created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{deptName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/departments/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Departments after POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"departments = JSON.parse(responseBody);\r",
+									"// console.log(departments.length);\r",
+									"\r",
+									"pm.variables.set(\"deptsAfter\", departments.length);\r",
+									"\r",
+									"// console.log(`Before: ${pm.variables.get(\"deptsBefore\")}`);\r",
+									"// console.log(`After: ${pm.variables.get(\"deptsAfter\")}`);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"departments count to be one more than before POST\", () => {\r",
+									"    pm.expect(pm.variables.get(\"deptsAfter\")).to.equal(pm.variables.get(\"deptsBefore\") + 1)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET posted Department before PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"dept = JSON.parse(responseBody);\r",
+									"\r",
+									"// console.log(dept.name);\r",
+									"\r",
+									"pm.variables.set(\"deptNameBefore\", dept.name);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments/{{deptId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								"{{deptId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Department",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{deptId}}\",\r\n    \"name\": \"{{updatedName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/departments/{{deptId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								"{{deptId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET posted Department after PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"dept = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.variables.set(\"deptNameAfter\", dept.name);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"department name to change after PUT\", () => {\r",
+									"    pm.expect(pm.variables.get(\"deptNameAfter\")).to.not.equal(pm.variables.get(\"deptNameBefore\"))\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments/{{deptId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								"{{deptId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Departments before DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"departments = JSON.parse(responseBody);\r",
+									"// console.log(departments.length);\r",
+									"\r",
+									"\r",
+									"pm.variables.set(\"deptsBefore\", departments.length);\r",
+									"// console.log(pm.variables.get(\"deptsBefore\"));\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Department",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments/{{deptId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments",
+								"{{deptId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Departments after DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"departments = JSON.parse(responseBody);\r",
+									"// console.log(departments.length);\r",
+									"\r",
+									"pm.variables.set(\"deptsAfter\", departments.length);\r",
+									"\r",
+									"// console.log(`Before: ${pm.variables.get(\"deptsBefore\")}`);\r",
+									"// console.log(`After: ${pm.variables.get(\"deptsAfter\")}`);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"departments count to be one less than before DELETE\", () => {\r",
+									"    pm.expect(pm.variables.get(\"deptsAfter\")).to.equal(pm.variables.get(\"deptsBefore\") - 1)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

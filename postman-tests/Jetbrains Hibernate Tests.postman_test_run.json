@@ -1,0 +1,315 @@
+{
+	"id": "3511b58b-4dff-4c44-ae15-1d73cf193f14",
+	"name": "Jetbrains Hibernate Tests",
+	"timestamp": "2022-08-10T12:30:21.564Z",
+	"collection_id": "19522010-87f04547-d51c-4648-9d19-24ba91ee1bf7",
+	"folder_id": "19522010-a8c6e2c5-4331-4035-8af1-bb5cb23cbc26",
+	"environment_id": "19522010-4cd6c87d-29b2-47ff-a20d-f19c5d914e35",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3fae9aad-8f52-4f77-aee5-c1be99e2d900",
+			"name": "GET Departments before POST",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments",
+			"time": 129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				129
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "2c2d51a1-42df-4fc7-b620-aa08c1b734fb",
+			"name": "POST Department",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments/",
+			"time": 81,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201 created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201 created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 201 created": true
+				}
+			]
+		},
+		{
+			"id": "01ff36ff-439a-454d-92f6-3a170a111928",
+			"name": "GET Departments after POST",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"departments count to be one more than before POST": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"departments count to be one more than before POST": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"departments count to be one more than before POST": true
+				}
+			]
+		},
+		{
+			"id": "355528c5-eae0-4e3e-8e9d-2b4bd35f7a82",
+			"name": "GET posted Department before PUT",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments/51",
+			"time": 69,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				69
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "302c646b-0c79-477a-8f79-a6041f65e3b9",
+			"name": "PUT Department",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments/51",
+			"time": 75,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				75
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "89aabd59-4a4f-408e-8a66-9eaaff3f0441",
+			"name": "GET posted Department after PUT",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments/51",
+			"time": 62,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"department name to change after PUT": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"department name to change after PUT": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				62
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"department name to change after PUT": true
+				}
+			]
+		},
+		{
+			"id": "14bcfd68-c9c9-4e80-9b70-52ed91cfaf15",
+			"name": "GET Departments before DELETE",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				59
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "95bb0d95-046d-48f4-837c-b8ab1c33b9a0",
+			"name": "DELETE Department",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments/51",
+			"time": 129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				129
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "96a76dbc-1926-4910-92e2-f7fd62e090a1",
+			"name": "GET Departments after DELETE",
+			"url": "http://localhost:8080/jetbrains-hibernate/webapi/departments",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"departments count to be one less than before DELETE": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"departments count to be one less than before DELETE": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"departments count to be one less than before DELETE": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 780,
+	"collection": {
+		"requests": [
+			{
+				"id": "3fae9aad-8f52-4f77-aee5-c1be99e2d900",
+				"method": "GET"
+			},
+			{
+				"id": "2c2d51a1-42df-4fc7-b620-aa08c1b734fb",
+				"method": "POST"
+			},
+			{
+				"id": "01ff36ff-439a-454d-92f6-3a170a111928",
+				"method": "GET"
+			},
+			{
+				"id": "355528c5-eae0-4e3e-8e9d-2b4bd35f7a82",
+				"method": "GET"
+			},
+			{
+				"id": "302c646b-0c79-477a-8f79-a6041f65e3b9",
+				"method": "PUT"
+			},
+			{
+				"id": "89aabd59-4a4f-408e-8a66-9eaaff3f0441",
+				"method": "GET"
+			},
+			{
+				"id": "14bcfd68-c9c9-4e80-9b70-52ed91cfaf15",
+				"method": "GET"
+			},
+			{
+				"id": "95bb0d95-046d-48f4-837c-b8ab1c33b9a0",
+				"method": "DELETE"
+			},
+			{
+				"id": "96a76dbc-1926-4910-92e2-f7fd62e090a1",
+				"method": "GET"
+			}
+		]
+	}
+}
