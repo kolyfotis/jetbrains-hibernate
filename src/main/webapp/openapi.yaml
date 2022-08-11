@@ -1,0 +1,12 @@
+resourcePackages:
+  - com.example.resources
+prettyPrint: true
+cacheTTL: 0
+openAPI:
+  info:
+    version: '1.0'
+    title: Department management API
+    description: 'This is a simple API to manage departments.'
+  servers:
+    - url: http://localhost:8080/jetbrains-hibernate/webapi
+      description: 'Development Server'

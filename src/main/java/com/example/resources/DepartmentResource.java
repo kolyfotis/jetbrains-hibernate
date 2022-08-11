@@ -11,6 +11,10 @@ import com.example.filters.AdminAuthorization;
 import com.example.filters.HttpLogger;
 import com.example.model.Message;
 import com.example.service.DepartmentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
@@ -26,6 +30,24 @@ public class DepartmentResource {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Operation(operationId = "getDepartments",
+            summary = "List all departments",
+            tags = {"departments"},
+            description = "Returns all Departments from the Database",
+            responses = {
+                    @ApiResponse(responseCode = "200",
+                            description = "All Departments",
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Department.class)
+                    )),
+                    @ApiResponse(responseCode = "500",
+                            description = "Internal Server Error",
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Message.class)
+                            ))
+    })
     public Response getDepartments() {
         List<Department> departments = null;
         GenericEntity<List<Department>> departmentsEntity = null;
@@ -41,7 +63,7 @@ public class DepartmentResource {
 //            System.out.println("- - - - - - BEGIN- - - - - - ");
 //            System.out.println(e.getMessage());
 //            System.out.println("- - - - - - END - - - - - - ");
-
+//          500
             return Response.serverError()
                     .entity(new Message(e.getMessage()))
                     .build();
