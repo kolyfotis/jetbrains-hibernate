@@ -95,6 +95,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.10.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.10.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.10.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
