@@ -17,7 +17,162 @@
           "default" : {
             "description" : "default response",
             "content" : {
-              "*/*" : { }
+              "application/json" : { },
+              "application/xml" : { }
+            }
+          }
+        }
+      }
+    },
+    "/departments" : {
+      "get" : {
+        "tags" : [ "departments", "get" ],
+        "summary" : "List all departments",
+        "description" : "Returns all Departments from the Database.",
+        "operationId" : "getDepartments",
+        "responses" : {
+          "200" : {
+            "description" : "All Departments",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "department", "post", "create" ],
+        "summary" : "Create a new department",
+        "description" : "Accepts a Department entity as JSON or XML and stores it in the database.",
+        "operationId" : "createDepartment",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Department"
+              }
+            },
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Department"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Department created successfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              }
+            }
+          },
+          "422" : {
+            "description" : "Unprocessable Entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Department"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "department" ],
+        "summary" : "Deletes a department by it's name provided as path parameter.",
+        "description" : "Receives a department's name as a Path Parameter, and deletes the department from the database. Admin authorization is required to delete a department.",
+        "operationId" : "deleteDepartmentByName",
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "default" : ""
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Department deleted successfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              }
+            }
+          },
+          "422" : {
+            "description" : "Unprocessable Entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Please provide a valid department name.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Message"
+                }
+              }
             }
           }
         }
@@ -201,160 +356,6 @@
         }
       }
     },
-    "/departments" : {
-      "get" : {
-        "tags" : [ "departments", "get" ],
-        "summary" : "List all departments",
-        "description" : "Returns all Departments from the Database.",
-        "operationId" : "getDepartments",
-        "responses" : {
-          "200" : {
-            "description" : "All Departments",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              }
-            }
-          },
-          "500" : {
-            "description" : "Internal Server Error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post" : {
-        "tags" : [ "department", "post", "create" ],
-        "summary" : "Create a new department",
-        "description" : "Accepts a Department entity as JSON or XML and stores it in the database.",
-        "operationId" : "createDepartment",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Department"
-              }
-            },
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Department"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "Department created successfully",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              }
-            }
-          },
-          "422" : {
-            "description" : "Unprocessable Entity",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Department"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "department" ],
-        "summary" : "Deletes a department by it's name provided as path parameter.",
-        "description" : "Receives a department's name as a Path Parameter, and deletes the department from the database. Admin authorization is required to delete a department.",
-        "operationId" : "deleteDepartmentByName",
-        "parameters" : [ {
-          "name" : "Authorization",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "name",
-          "in" : "query",
-          "schema" : {
-            "type" : "string",
-            "default" : ""
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Department deleted successfully",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              }
-            }
-          },
-          "422" : {
-            "description" : "Unprocessable Entity",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              }
-            }
-          },
-          "404" : {
-            "description" : "Please provide a valid department name.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              },
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Message"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/employees" : {
       "get" : {
         "operationId" : "getEmployees",
@@ -383,23 +384,6 @@
         }
       }
     },
-    "/shiro/define" : {
-      "get" : {
-        "operationId" : "defineShiro",
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/shiro" : {
       "get" : {
         "operationId" : "sayHelloShiro",
@@ -417,9 +401,26 @@
         }
       }
     },
-    "/test/employee" : {
+    "/shiro/define" : {
       "get" : {
-        "operationId" : "getEmployeeResource",
+        "operationId" : "defineShiro",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test/admin" : {
+      "get" : {
+        "operationId" : "getAdminMessage",
         "responses" : {
           "default" : {
             "description" : "default response",
@@ -451,9 +452,9 @@
         }
       }
     },
-    "/test/admin" : {
+    "/test/employee" : {
       "get" : {
-        "operationId" : "getAdminMessage",
+        "operationId" : "getEmployeeResource",
         "responses" : {
           "default" : {
             "description" : "default response",
@@ -471,14 +472,6 @@
   },
   "components" : {
     "schemas" : {
-      "Message" : {
-        "type" : "object",
-        "properties" : {
-          "message" : {
-            "type" : "string"
-          }
-        }
-      },
       "Department" : {
         "type" : "object",
         "properties" : {
@@ -517,6 +510,14 @@
             "items" : {
               "$ref" : "#/components/schemas/Department"
             }
+          }
+        }
+      },
+      "Message" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
           }
         }
       }
