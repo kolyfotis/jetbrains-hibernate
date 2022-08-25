@@ -73,7 +73,7 @@
     window.onload = function() {
         // Build a system
         const ui = SwaggerUIBundle({
-            url: "http://localhost:8002/api/openapi.json",
+            url: "http://localhost:8080/jetbrains-hibernate/openapi",
             dom_id: '#swagger-ui',
             presets: [
                 SwaggerUIBundle.presets.apis,
