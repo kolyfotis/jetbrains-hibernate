@@ -1,7 +1,7 @@
 ## Prerequisites
 
 It's not required, but you can install a tool called Newman to run the tests using Command Line.
-Otherwise, you can import the Collection and Environment Variables in Postman and run them in it.
+Otherwise, you can import the Collection and Environment Variables in **Postman** and run them directly there.
 
 ### Installing Newman
 
