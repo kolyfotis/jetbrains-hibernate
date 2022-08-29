@@ -237,19 +237,17 @@ public class DepartmentResource {
     @AdminAuthorization
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response deleteDepartmentsInRange(
-            @DefaultValue("0") @QueryParam("from") String start,
-            @DefaultValue("0") @QueryParam("from") String end
+            @DefaultValue("0") @QueryParam("from") int start,
+            @DefaultValue("0") @QueryParam("from") int end
     ) {
-        int from = Integer.parseInt(start);
-        int to = Integer.parseInt(end);
 
-        if(from == 0 || to == 0) {
+        if(start == 0 || end == 0) {
             return Response.status(404)
                     .entity(new Message("Invalid range provided."))
                     .build();
         }
         try {
-            departmentService.removeDepartmentsInRange(from, to);
+            departmentService.removeDepartmentsInRange(start, end);
         } catch (Exception e) {
             return Response.serverError()
                     .entity(new Message(e.getMessage()))
@@ -257,7 +255,7 @@ public class DepartmentResource {
         }
 
         return Response.status(200)
-                .entity(new Message(String.format("Departments from id %d to id %d deleted.", from, to)))
+                .entity(new Message(String.format("Departments from id %d to id %d deleted.", start, end)))
                 .build();
     }
 
@@ -326,6 +324,16 @@ public class DepartmentResource {
                 .build();
     }
 
+/*
+*   Conflicts with deleteDepartmentsInRange
+*
+*   [[FATAL] A resource model has ambiguous (sub-)resource method for HTTP method DELETE and input mime-types as
+*   defined by"@Consumes" and "@Produces" annotations at Java methods public javax.ws.rs.core.Response
+*   com.example.resources.DepartmentResource.deleteDepartmentsInRange(int,int) and public javax.ws.rs.core.Response
+*   com.example.resources.DepartmentResource.deleteDepartmentByName(java.lang.String) at matching regular expression
+*   /departments. These two methods produces and consumes exactly the same mime-types and therefore their invocation
+*   as a resource methods will always fail.; source='org.glassfish.jersey.server.model.RuntimeResource@7cd80356']
+*
     @DELETE
     @AdminAuthorization
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -394,5 +402,5 @@ public class DepartmentResource {
                 .entity(new Message("Department: |" + name + "| deleted."))
                 .build();
     }
-
+*/
 }

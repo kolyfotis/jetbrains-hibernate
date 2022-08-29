@@ -210,7 +210,7 @@ public class DepartmentPersistence {
             throw e;
         }
     }
-
+/*
     public void removeDepartmentByName(String name) throws Exception {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -246,7 +246,7 @@ public class DepartmentPersistence {
             throw e;
         }
     }
-
+*/
     public void removeDepartmentsInRange(int fromId, int toId) throws Exception {
         try {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");

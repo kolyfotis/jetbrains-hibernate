@@ -52,7 +52,7 @@ public class DepartmentService {
             throw e;
         }
     }
-
+/*
     public void removeDepartmentByName(String name) throws Exception {
         try {
             departmentPersistence.removeDepartmentByName(name);
@@ -60,7 +60,7 @@ public class DepartmentService {
             throw e;
         }
     }
-
+*/
     public void removeDepartmentsInRange(int from, int to) throws Exception {
         try {
             departmentPersistence.removeDepartmentsInRange(from, to);
