@@ -246,4 +246,41 @@ public class DepartmentPersistence {
             throw e;
         }
     }
+
+    public void removeDepartmentsInRange(int fromId, int toId) throws Exception {
+        try {
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            EntityTransaction transaction = entityManager.getTransaction();
+            try {
+                transaction.begin();
+
+                int lines = entityManager.createNativeQuery("delete from Department where id between :fromId and :toId", Department.class)
+                        .setParameter("fromId", fromId)
+                        .setParameter("toId", toId)
+                        .executeUpdate();
+
+                if (lines < 1) {
+                    throw new Exception("Invalid id.");
+                }
+
+                // LOGS
+                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
+                System.out.printf("Departments from id %d to id %d were removed.", fromId, toId);
+
+                transaction.commit();
+            } catch (Exception e) {
+                throw e;
+            }
+            finally {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                entityManager.close();
+                entityManagerFactory.close();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

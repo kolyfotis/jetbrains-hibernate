@@ -234,6 +234,34 @@ public class DepartmentResource {
     }
 
     @DELETE
+    @AdminAuthorization
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Response deleteDepartmentsInRange(
+            @DefaultValue("0") @QueryParam("from") String start,
+            @DefaultValue("0") @QueryParam("from") String end
+    ) {
+        int from = Integer.parseInt(start);
+        int to = Integer.parseInt(end);
+
+        if(from == 0 || to == 0) {
+            return Response.status(404)
+                    .entity(new Message("Invalid range provided."))
+                    .build();
+        }
+        try {
+            departmentService.removeDepartmentsInRange(from, to);
+        } catch (Exception e) {
+            return Response.serverError()
+                    .entity(new Message(e.getMessage()))
+                    .build();
+        }
+
+        return Response.status(200)
+                .entity(new Message(String.format("Departments from id %d to id %d deleted.", from, to)))
+                .build();
+    }
+
+    @DELETE
     @Path("/{id: \\d+}")
     @AdminAuthorization
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

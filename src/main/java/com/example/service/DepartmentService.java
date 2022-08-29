@@ -60,4 +60,12 @@ public class DepartmentService {
             throw e;
         }
     }
+
+    public void removeDepartmentsInRange(int from, int to) throws Exception {
+        try {
+            departmentPersistence.removeDepartmentsInRange(from, to);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }
