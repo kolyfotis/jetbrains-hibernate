@@ -238,7 +238,7 @@ public class DepartmentResource {
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response deleteDepartmentsInRange(
             @DefaultValue("0") @QueryParam("from") int start,
-            @DefaultValue("0") @QueryParam("from") int end
+            @DefaultValue("0") @QueryParam("to") int end
     ) {
 
         if(start == 0 || end == 0) {
