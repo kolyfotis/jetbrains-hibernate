@@ -1,7 +1,7 @@
 /*
 * Run tests that require connection to the database
 * */
-package com.example.tests;
+package com.example.other;
 
 import com.example.entity.User;
 import com.example.persistence.UserPersistence;

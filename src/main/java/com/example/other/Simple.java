@@ -1,7 +1,7 @@
 /*
 * Run simple tests that require no persistence
 * */
-package com.example.tests;
+package com.example.other;
 
 import com.example.entity.Department;
 import org.apache.commons.codec.digest.DigestUtils;
