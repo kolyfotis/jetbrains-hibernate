@@ -241,7 +241,7 @@ public class DepartmentResource {
             @DefaultValue("0") @QueryParam("to") int end
     ) {
 
-        if(start == 0 || end == 0) {
+        if(start == 0 || end == 0 || end < start) {
             return Response.status(404)
                     .entity(new Message("Invalid range provided."))
                     .build();
