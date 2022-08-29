@@ -1,8 +1,6 @@
 package com.example.other;
 
 import com.opencsv.CSVReader;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
 
 import java.io.FileReader;
 import java.io.FileWriter;
