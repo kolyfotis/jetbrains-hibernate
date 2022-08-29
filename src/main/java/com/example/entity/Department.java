@@ -18,7 +18,7 @@ public class Department {
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @ManyToMany(mappedBy = "departments")
