@@ -12,6 +12,8 @@ import java.util.*;
 
 @Entity
 @XmlRootElement
+@PersistenceUnit(name = "hibernate")
+//@PersistenceUnit(name = "glassfish")
 public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -96,7 +98,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "\nEmployee{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
