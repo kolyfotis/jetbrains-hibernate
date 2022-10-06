@@ -5,6 +5,7 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamAPITraining {
     public static void main(String[] args) {
@@ -72,6 +73,11 @@ public class StreamAPITraining {
         List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
         listOfNumbers.parallelStream().forEach(num ->
                 System.out.println(num + " " + Thread.currentThread().getName()));
+
+
+        List<Integer> ints = Stream.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).collect(Collectors.toList());
+
+        ints.forEach((i) -> new Thread(() -> System.out.printf("Hi from Thread %d.%n", i)).start());
 
     }
 }
