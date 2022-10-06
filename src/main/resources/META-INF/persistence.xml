@@ -3,7 +3,9 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="default">
+    <!-- Hibernate configuration -->
+    <!-- Runs on Tomcat -->
+    <persistence-unit name="hibernate">
 
         <class>com.example.entity.Department</class>
         <class>com.example.entity.Employee</class>
@@ -16,4 +18,18 @@
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
+
+    <!-- Glassfish 5.0.1 configuration -->
+    <!-- In the current project the entities are persisted using resource local transactions, in persistence package.
+            The code in methods used to persist entities can be refactored so that transactions will be handled by
+             the container. -->
+    <!-- transaction-type="JTA" -->
+<!--    <persistence-unit name="glassfish" transaction-type="RESOURCE_LOCAL">-->
+<!--        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+<!--    &lt;!&ndash; <jta-data-source>jdbc/jetbrainsdb</jta-data-source> &ndash;&gt;-->
+<!--        <non-jta-data-source>jdbc/jetbrainsdb</non-jta-data-source>-->
+
+<!--        <exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+
+<!--    </persistence-unit>-->
 </persistence>
