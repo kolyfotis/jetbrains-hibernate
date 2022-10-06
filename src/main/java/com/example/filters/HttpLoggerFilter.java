@@ -25,7 +25,7 @@ public class HttpLoggerFilter implements ContainerRequestFilter, ContainerRespon
     * */
     @Override
     public void filter(ContainerRequestContext req) throws IOException {
-        System.out.println("HttpLoggerFilter::filter(): REQUEST FILTER:");
+//        System.out.println("HttpLoggerFilter::filter(): REQUEST FILTER:");
 //        System.out.println(req.getHeaders());
         String HTTPMethod = req.getMethod();
         String path = req.getUriInfo().getAbsolutePath().toString();
@@ -51,7 +51,7 @@ public class HttpLoggerFilter implements ContainerRequestFilter, ContainerRespon
     @Override
     public void filter(ContainerRequestContext req,
                        ContainerResponseContext res) throws IOException {
-        System.out.println("HttpLoggerFilter::filter(): RESPONSE FILTER:");
+//        System.out.println("HttpLoggerFilter::filter(): RESPONSE FILTER:");
 //        System.out.println(res.getHeaders());
         String status = String.valueOf(res.getStatus());
         String headers = res.getHeaders().toString();
