@@ -11,6 +11,8 @@ import java.util.Objects;
 import org.apache.commons.codec.digest.DigestUtils;
 
 @Entity
+@PersistenceUnit(name = "hibernate")
+//@PersistenceUnit(name = "glassfish")
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
