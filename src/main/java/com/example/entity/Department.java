@@ -6,12 +6,15 @@ package com.example.entity;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.*;
 
 @Entity
 @XmlRootElement
+@PersistenceUnit(name = "hibernate")
+//@PersistenceUnit(name = "glassfish")
 public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -19,6 +22,7 @@ public class Department {
     private int id;
     @Basic
     @Column(name = "name", unique = true)
+    @NotEmpty(message = "Department name cannot be empty")
     private String name;
 
     @ManyToMany(mappedBy = "departments")
@@ -72,7 +76,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "\nDepartment{" +
+        return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
