@@ -11,12 +11,15 @@ import java.util.List;
 
 public class UserPersistence {
 
+    private final String PERSISTENCE_UNIT_NAME = "hibernate";
+//    private final String PERSISTENCE_UNIT_NAME = "glassfish";
+
     /*
      * Returns a list of all Users in the User table including
      * all the table's fields.
      * */
     public List<User> getUsers() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         List<User> users = new ArrayList<>();
@@ -27,8 +30,8 @@ public class UserPersistence {
             Query selectUsers = entityManager.createNativeQuery("select * from User", User.class);
             users = (List<User>) selectUsers.getResultList();
             // LOGS
-            System.out.println("LOG: UserPersistence::getUsers(): ");
-            System.out.println(users);
+//            System.out.println("LOG: UserPersistence::getUsers(): ");
+//            System.out.println(users);
 
             transaction.commit();
         } finally {
@@ -46,7 +49,7 @@ public class UserPersistence {
      * Otherwise, throws an exception.
      * */
     public User getUserById(int id) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         User user = new User();
@@ -58,8 +61,8 @@ public class UserPersistence {
             selectUser.setParameter("userId", id);
             user = (User) selectUser.getSingleResult();
             // LOGS
-            System.out.println("LOG: UserPersistence::getUserById(): ");
-            System.out.println(user);
+//            System.out.println("LOG: UserPersistence::getUserById(): ");
+//            System.out.println(user);
 
             transaction.commit();
         } finally {
@@ -77,7 +80,7 @@ public class UserPersistence {
      * Does not handle "Entity not found" errors.
      * */
     public User getUserByUserName(String userName) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         User user = null;
@@ -90,8 +93,8 @@ public class UserPersistence {
             selectUser.setParameter("userName", userName);
             user = (User) selectUser.getSingleResult();
             // LOGS
-            System.out.println("LOG: UserPersistence::getUserByUserName(): ");
-            System.out.println(user);
+//            System.out.println("LOG: UserPersistence::getUserByUserName(): ");
+//            System.out.println(user);
 
             transaction.commit();
         } finally {
@@ -108,7 +111,7 @@ public class UserPersistence {
      * Receives a User object, stores it in the database and returns this User.
      * */
     public User addUser(User user) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -127,8 +130,8 @@ public class UserPersistence {
                     .getSingleResult();
 
             // LOGS
-            System.out.println("LOG: UserPersistence::addUser(): ");
-            System.out.println(user);
+//            System.out.println("LOG: UserPersistence::addUser(): ");
+//            System.out.println(user);
 
             transaction.commit();
         } finally {
@@ -146,7 +149,7 @@ public class UserPersistence {
      * Does not handle "Entity not found" errors.
      * */
     public User updateUser(User user) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -159,8 +162,8 @@ public class UserPersistence {
                     .executeUpdate();
 
             // LOGS
-            System.out.println("LOG: UserPersistence::updateUser(): ");
-            System.out.println(user);
+//            System.out.println("LOG: UserPersistence::updateUser(): ");
+//            System.out.println(user);
 
             transaction.commit();
         } finally {
@@ -178,7 +181,7 @@ public class UserPersistence {
      * Does not handle "Entity not found" errors.
      * */
     public void removeUser(int id) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -189,8 +192,8 @@ public class UserPersistence {
                     .executeUpdate();
 
             // LOGS
-            System.out.println("LOG: UserPersistence::removeUser(): ");
-            System.out.println(String.format("User with id: %d was removed.", id));
+//            System.out.println("LOG: UserPersistence::removeUser(): ");
+//            System.out.println(String.format("User with id: %d was removed.", id));
 
             transaction.commit();
         } finally {

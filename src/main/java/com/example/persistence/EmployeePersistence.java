@@ -11,8 +11,11 @@ import java.util.List;
 
 public class EmployeePersistence {
 
+    private final String PERSISTENCE_UNIT_NAME = "hibernate";
+//    private final String PERSISTENCE_UNIT_NAME = "glassfish";
+
     public List<Employee> getEmployees() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         List<Employee> employees = new ArrayList<Employee>();
@@ -23,8 +26,8 @@ public class EmployeePersistence {
             Query selectEmployees = entityManager.createNativeQuery("select * from mydb.employee", Employee.class);
             employees = (List<Employee>) selectEmployees.getResultList();
             // LOGS
-            System.out.println("LOG: EmployeePersistence::getEmployees(): ");
-            System.out.println(employees);
+//            System.out.println("LOG: EmployeePersistence::getEmployees(): ");
+//            System.out.println(employees);
 
             transaction.commit();
         } finally {
@@ -38,7 +41,7 @@ public class EmployeePersistence {
     }
 
     public List<Employee> getEmployeesByDepartment(String department) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         List<Employee> employees = new ArrayList<>();

@@ -11,6 +11,9 @@ import java.util.List;
 
 public class DepartmentPersistence {
 
+    private final String PERSISTENCE_UNIT_NAME = "hibernate";
+//    private final String PERSISTENCE_UNIT_NAME = "glassfish";
+
     /*
     * Returns a list of all Departments in the Department table including
     * all the table's fields.
@@ -19,7 +22,7 @@ public class DepartmentPersistence {
         List<Department> departments = new ArrayList<>();
 
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
 
@@ -29,8 +32,8 @@ public class DepartmentPersistence {
                 Query selectDepartments = entityManager.createNativeQuery("select * from Department", Department.class);
                 departments = (List<Department>) selectDepartments.getResultList();
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::getDepartments(): ");
-                System.out.println(departments);
+//                System.out.println("LOG: DepartmentPersistence::getDepartments(): ");
+//                System.out.println(departments);
 
                 transaction.commit();
             } finally {
@@ -53,7 +56,7 @@ public class DepartmentPersistence {
     public Department getDepartmentById(int id) throws Exception {
         Department department = new Department();
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
 
@@ -68,8 +71,8 @@ public class DepartmentPersistence {
                     throw new Exception("Invalid id.");
                 }
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::getDepartmentById(): ");
-                System.out.println(department);
+//                System.out.println("LOG: DepartmentPersistence::getDepartmentById(): ");
+//                System.out.println(department);
 
                 transaction.commit();
             } catch (Exception e) {
@@ -92,7 +95,7 @@ public class DepartmentPersistence {
      * */
     public Department addDepartment(Department department) {
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             try {
@@ -109,8 +112,8 @@ public class DepartmentPersistence {
                         .getSingleResult();
 
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::addDepartment(): ");
-                System.out.println(department);
+//                System.out.println("LOG: DepartmentPersistence::addDepartment(): ");
+//                System.out.println(department);
 
                 transaction.commit();
             } catch (Exception e) {
@@ -134,7 +137,7 @@ public class DepartmentPersistence {
      * */
     public Department updateDepartment(Department department) throws Exception {
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             try {
@@ -150,8 +153,8 @@ public class DepartmentPersistence {
                 }
 
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::updateDepartment(): ");
-                System.out.println(department);
+//                System.out.println("LOG: DepartmentPersistence::updateDepartment(): ");
+//                System.out.println(department);
 //                System.out.println("Lines affected: " + lines);
 
                 transaction.commit();
@@ -177,7 +180,7 @@ public class DepartmentPersistence {
      * */
     public void removeDepartmentById(int id) throws Exception {
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             try {
@@ -192,8 +195,8 @@ public class DepartmentPersistence {
                 }
 
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
-                System.out.println(String.format("Department with id: %d was removed.", id));
+//                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
+//                System.out.println(String.format("Department with id: %d was removed.", id));
 
                 transaction.commit();
             } catch (Exception e) {
@@ -213,7 +216,7 @@ public class DepartmentPersistence {
 /*
     public void removeDepartmentByName(String name) throws Exception {
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             try {
@@ -249,7 +252,7 @@ public class DepartmentPersistence {
 */
     public void removeDepartmentsInRange(int fromId, int toId) throws Exception {
         try {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
             try {
@@ -265,8 +268,8 @@ public class DepartmentPersistence {
                 }
 
                 // LOGS
-                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
-                System.out.printf("Departments from id %d to id %d were removed.", fromId, toId);
+//                System.out.println("LOG: DepartmentPersistence::removeDepartmentById(): ");
+//                System.out.printf("Departments from id %d to id %d were removed.", fromId, toId);
 
                 transaction.commit();
             } catch (Exception e) {
